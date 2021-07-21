@@ -12,7 +12,9 @@ var server = http.createServer(function(request, response){
   var parsedUrl = url.parse(request.url, true)
   var pathWithQuery = request.url 
   var queryString = ''
-  if(pathWithQuery.indexOf('?') >= 0){ queryString = pathWithQuery.substring(pathWithQuery.indexOf('?')) }
+  if (pathWithQuery.indexOf('?') >= 0) {
+    queryString = pathWithQuery.substring(pathWithQuery.indexOf('?'))
+  }
   var path = parsedUrl.pathname
   var query = parsedUrl.query
   var method = request.method

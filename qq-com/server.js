@@ -43,8 +43,10 @@ var server = http.createServer(function(request, response) {
     if (request.headers["referer"].indexOf("http://frank.com:9990") === 0) {
       response.statusCode = 200;
       response.setHeader("Content-Type", "text/javascript;charset=utf-8");
-      const string = `window['{{xxx}}']({{data}}) `
+      const string = `window['{{xxx}}']({{data}})`
       const data = fs.readFileSync("./public/friends.json").toString();
+      console.log(data,query)
+    
       const string2 = string.replace("{{data}}", data).replace('{{xxx}}', query.callback);
       response.write(string2);
       response.end();
